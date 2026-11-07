@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Fastrack — Tracker de ayuno intermitente · CodeEngTools</title>
-<meta name="description" content="Fastrack: tracker de ayuno intermitente minimalista. Cronómetro, etapas metabólicas e historial. Local-first: tus datos viven en tu móvil. Beta privada." />
+<meta name="description" content="Fastrack: tracker de ayuno intermitente minimalista. Cronómetro, historial y etapas metabólicas que se ajustan a tus propias mediciones de cetonas. Local-first: tus datos viven en tu móvil. Beta privada." />
 <meta name="theme-color" content="#080c15" />
 <link rel="canonical" href="https://codeengtools.eu/fastrack/" />
 <link rel="icon" type="image/svg+xml" href="/fastrack/favicon.svg" />
@@ -110,6 +110,17 @@ h2{font-size:clamp(1.7rem,3.2vw,2.3rem);letter-spacing:-.8px;font-weight:800;mar
 .stage.on .h,.stage.on .t{color:var(--a)}
 .bar{height:4px;background:var(--surface-2);border-radius:4px;margin-top:18px;overflow:hidden}
 .bar i{display:block;height:100%;width:44%;background:var(--a)}
+
+/* ADAPTIVE */
+.adapt{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:28px}
+.adapt-card{border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);padding:22px 24px}
+.adapt-card.on{border-color:var(--a-line);background:linear-gradient(135deg,var(--a-dim),var(--surface))}
+.adapt-card .k{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;color:var(--muted-2)}
+.adapt-card.on .k{color:var(--a)}
+.adapt-card .v{font-family:var(--mono);font-weight:700;font-size:2.1rem;letter-spacing:.02em;margin:10px 0 6px}
+.adapt-card.on .v{color:var(--a)}
+.adapt-card p{margin:0;color:var(--muted);font-size:.92rem}
+.princ.four{grid-template-columns:repeat(4,1fr)}
 .note{font-size:.8rem;color:var(--muted-2);margin-top:14px}
 
 /* FEATURES */
@@ -162,6 +173,8 @@ footer{border-top:1px solid var(--border);padding:30px 0;margin-top:40px;color:v
   .stage .t{margin:0}
   .grid-4{grid-template-columns:1fr 1fr}
   .princ{grid-template-columns:1fr}
+  .princ.four{grid-template-columns:1fr}
+  .adapt{grid-template-columns:1fr}
   .shots{grid-template-columns:1fr;gap:48px}
   .shot figcaption{max-width:420px;margin:0 auto;text-align:center}
   .access{grid-template-columns:1fr;padding:28px}
@@ -231,11 +244,44 @@ footer{border-top:1px solid var(--border);padding:30px 0;margin-top:40px;color:v
       <div class="stage"><div class="h">00H</div><div class="t"><span class="lang-es">Digiriendo</span><span class="lang-en">Digesting</span></div><p><span class="lang-es">Digestión en curso, insulina alta</span><span class="lang-en">Digestion under way, insulin high</span></p></div>
       <div class="stage on"><div class="h">04H</div><div class="t"><span class="lang-es">Glucógeno</span><span class="lang-en">Glycogen</span></div><p><span class="lang-es">Reservas del hígado vaciándose</span><span class="lang-en">Liver stores emptying</span></p></div>
       <div class="stage"><div class="h">12H</div><div class="t"><span class="lang-es">Grasa</span><span class="lang-en">Fat</span></div><p><span class="lang-es">Lipólisis subiendo, insulina baja</span><span class="lang-en">Lipolysis rising, insulin low</span></p></div>
-      <div class="stage"><div class="h">16H</div><div class="t"><span class="lang-es">Cetosis</span><span class="lang-en">Ketosis</span></div><p><span class="lang-es">Cetonas por encima de 0,5 mmol/L</span><span class="lang-en">Ketones above 0.5 mmol/L</span></p></div>
+      <div class="stage"><div class="h">16H</div><div class="t"><span class="lang-es">Cetosis</span><span class="lang-en">Ketosis</span></div><p><span class="lang-es">β-hidroxibutirato en sangre sobre 0,5 mmol/L</span><span class="lang-en">Blood β-hydroxybutyrate above 0.5 mmol/L</span></p></div>
       <div class="stage"><div class="h">24H</div><div class="t"><span class="lang-es">Autofagia</span><span class="lang-en">Autophagy</span></div><p><span class="lang-es">La limpieza celular se acelera</span><span class="lang-en">Cellular clean-up speeds up</span></p></div>
     </div>
     <div class="bar" aria-hidden="true"><i></i></div>
     <p class="note"><span class="lang-es">Fastrack no es un producto sanitario ni sustituye el consejo de un profesional.</span><span class="lang-en">Fastrack is not a medical device and does not replace professional advice.</span></p>
+  </div>
+</section>
+
+<!-- ADAPTIVE -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-eyebrow caps"><span class="lang-es">Se ajusta a ti</span><span class="lang-en">It adapts to you</span></span>
+      <h2><span class="lang-es">Mides, y la línea se mueve</span><span class="lang-en">You measure, and the line moves</span></h2>
+      <p class="sub"><span class="lang-es">Las horas de arriba son la media de otra gente. En cuanto mides cetonas, Fastrack deja de hacerle caso al reloj y te hace caso a ti.</span><span class="lang-en">The hours above are other people's average. The moment you measure your ketones, Fastrack stops trusting the clock and trusts you.</span></p>
+    </div>
+
+    <div class="adapt">
+      <div class="adapt-card">
+        <div class="k"><span class="lang-es">Según el reloj</span><span class="lang-en">By the clock</span></div>
+        <div class="v">16 h</div>
+        <p><span class="lang-es">Cetosis, según la tabla general.</span><span class="lang-en">Ketosis, according to the generic table.</span></p>
+      </div>
+      <div class="adapt-card on">
+        <div class="k"><span class="lang-es">Según tu medición</span><span class="lang-en">By your measurement</span></div>
+        <div class="v">11 h</div>
+        <p><span class="lang-es">0,8 mmol/L a las 18:30 — y la app te cree a ti.</span><span class="lang-en">0.8 mmol/L at 18:30 — and the app takes your word for it.</span></p>
+      </div>
+    </div>
+
+    <div class="princ four">
+      <div class="pr"><div class="n">01 · <span class="lang-es">CETONAS</span><span class="lang-en">KETONES</span></div><h3><span class="lang-es">Una medida manda sobre el reloj</span><span class="lang-en">A reading beats the clock</span></h3><p><span class="lang-es">Si mides 0,8 a la hora once, estás en cetosis aunque la tabla diga que faltan cinco horas. Y mientras no comas, eso ya no se deshace.</span><span class="lang-en">Measure 0.8 at hour eleven and you are in ketosis, even if the table says five hours to go. And until you eat, that does not come undone.</span></p></div>
+      <div class="pr"><div class="n">02 · <span class="lang-es">TAMBIÉN EL CERO</span><span class="lang-en">ZERO COUNTS TOO</span></div><h3><span class="lang-es">No encontrar nada también informa</span><span class="lang-en">Finding nothing is information too</span></h3><p><span class="lang-es">Una lectura baja frena la estimación en vez de ignorarse. Pero caduca a las tres horas: que no hubiera cetonas a la hora diez no dice nada de la dieciocho.</span><span class="lang-en">A low reading holds the estimate back instead of being ignored. But it expires after three hours: no ketones at hour ten says nothing about hour eighteen.</span></p></div>
+      <div class="pr"><div class="n">03 · <span class="lang-es">CARBOS</span><span class="lang-en">CARBS</span></div><h3><span class="lang-es">Aprende de tus ayunos, no de un supuesto</span><span class="lang-en">It learns from your fasts, not an assumption</span></h3><p><span class="lang-es">Cuánto te retrasan los carbohidratos sale de comparar tus propios ayunos. Hasta que no hay ocho con datos suficientes no se inventa un número: usa la tabla general y te dice cuántos faltan.</span><span class="lang-en">How much carbs set you back comes from comparing your own fasts. Until there are eight with enough data it invents no number: it uses the generic table and tells you how many are missing.</span></p></div>
+      <div class="pr"><div class="n">04 · <span class="lang-es">TU ESCALA</span><span class="lang-en">YOUR SCALE</span></div><h3><span class="lang-es">Aliento y sangre no se mezclan</span><span class="lang-en">Breath and blood never mix</span></h3><p><span class="lang-es">La acetona en aliento (ppm) y las cetonas en sangre (mmol/L) no se convierten la una en la otra, así que nunca se comparan ni se dibujan juntas. Si soplas, la app aprende tu propia referencia con tus lecturas en ayunas.</span><span class="lang-en">Breath acetone (ppm) and blood ketones (mmol/L) do not convert into one another, so they are never compared or plotted together. If you breath-test, the app learns your own baseline from your fasted readings.</span></p></div>
+    </div>
+
+    <p class="note"><span class="lang-es">Una medición puede confirmar la cetosis, nunca la autofagia: ninguna medida que recoge la app habla de eso. Y en pantalla siempre se ve qué viene de un dato tuyo y qué de un cálculo.</span><span class="lang-en">A reading can confirm ketosis, never autophagy: nothing the app records speaks to that. And the screen always shows what came from your own data and what from an estimate.</span></p>
   </div>
 </section>
 
@@ -282,7 +328,7 @@ footer{border-top:1px solid var(--border);padding:30px 0;margin-top:40px;color:v
     <div class="plats">
       <div class="plat"><b>Android</b><span class="st ok"><span class="lang-es">Beta</span><span class="lang-en">Beta</span></span></div>
       <div class="plat"><b>Web</b><span class="st ok"><span class="lang-es">Disponible</span><span class="lang-en">Available</span></span></div>
-      <div class="plat"><b>iPhone</b><span class="st"><span class="lang-es">Próximamente</span><span class="lang-en">Coming soon</span></span></div>
+      <div class="plat"><b>iPhone</b><span class="st"><span class="lang-es">En pruebas</span><span class="lang-en">In testing</span></span></div>
     </div>
   </div>
 </section>
