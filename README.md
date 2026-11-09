@@ -6,7 +6,7 @@ Sitio estatico de una sola pagina, sin build ni dependencias. Se despliega en **
 
 ## Estructura
 
-    web_portal/
+    codeengtools-website/
     |- public/            # Directorio publicado (output de Cloudflare Pages)
     |  |- index.html      # La landing (todo el CSS/JS va inline)
     |  |- favicon.svg
@@ -18,7 +18,7 @@ Sitio estatico de una sola pagina, sin build ni dependencias. Se despliega en **
 
 ## Despliegue en Cloudflare Pages (Git)
 
-En **Workers & Pages -> Create -> Pages -> Connect to Git**, elige `CodeEngTools/web_portal` y configura:
+En **Workers & Pages -> Create -> Pages -> Connect to Git**, elige `CodeEngTools/codeengtools-website` y configura:
 
 | Ajuste | Valor |
 |---|---|
