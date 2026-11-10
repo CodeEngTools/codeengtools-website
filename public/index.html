@@ -258,6 +258,14 @@ h2.sec-title{font-size:clamp(1.7rem,3.2vw,2.35rem);letter-spacing:-.8px;font-wei
 @media (prefers-reduced-motion:reduce){.app-badge.dev::before{animation:devpulse 2s ease-in-out infinite}}
 .app-wip{font-family:var(--mono);font-size:.76rem;color:var(--muted-2);margin-top:auto}
 @media (max-width:900px){.app-card.sp .app-body{grid-template-columns:1fr}}
+.app-card.hm{--a:#ef4444;--a-dim:rgba(239,68,68,.13);--a-line:rgba(239,68,68,.4);grid-column:1/-1;border-style:dashed;border-color:var(--a-line)}
+.app-card.hm::before{background:repeating-linear-gradient(90deg,var(--a) 0 14px,transparent 14px 24px)}
+.app-card.hm .app-body{display:grid;grid-template-columns:1.3fr 1fr;gap:8px 32px;align-items:start}
+.app-card.hm .app-badge.dev::before{animation:devpulse 1.4s ease-in-out infinite,devhalo-hm 1.4s ease-out infinite}
+@keyframes devhalo-hm{0%{box-shadow:0 0 0 0 rgba(239,68,68,.7)}100%{box-shadow:0 0 0 7px rgba(239,68,68,0)}}
+.app-card.hm .app-cta{margin-top:0}
+.app-card.hm .app-wip{margin-top:14px}
+@media (max-width:900px){.app-card.hm .app-body{grid-template-columns:1fr}}
 @media (max-width:900px){.apps-grid{grid-template-columns:1fr}}
 
 /* ABOUT */
@@ -916,6 +924,31 @@ footer{border-top:1px solid var(--border);padding:34px 0;background:var(--bg-2)}
               <li><span class="lang-es">Avisos</span><span class="lang-en">Reminders</span></li>
               <li>local-first</li>
             </ul>
+            <div class="app-wip"><span class="lang-es">// próximamente · beta privada</span><span class="lang-en">// coming soon · private beta</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="app-card hm reveal">
+        <div class="app-top">
+          <span class="app-logo" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M32 11 C32 11 17 29 17 39 a15 15 0 0 0 30 0 C47 29 32 11 32 11 Z" fill="none" stroke="#ef4444" stroke-width="3.5" stroke-linejoin="round"/><polyline points="23,43 29,37 34,41 41,32" fill="none" stroke="#ef4444" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div><div class="app-name">Hemotrack</div><span class="app-badge dev"><span class="lang-es">En desarrollo</span><span class="lang-en">In development</span></span></div>
+        </div>
+        <div class="app-body">
+          <div>
+            <h3><span class="lang-es">Tus analíticas, <em>en una línea.</em></span><span class="lang-en">Your blood tests, <em>as one line.</em></span></h3>
+            <p><span class="lang-es">Subes los PDFs del laboratorio y la app saca cada valor y te dibuja cómo evoluciona cada marcador a lo largo de los años. Encima de la curva, lo que cambiaste: dieta, suplementos, entreno, descanso.</span><span class="lang-en">Upload your lab PDFs and the app pulls out every value and draws how each marker moves over the years. On top of the curve, what you changed: diet, supplements, training, sleep.</span></p>
+          </div>
+          <div>
+            <ul class="app-chips">
+              <li><span class="lang-es">Lee el PDF del laboratorio</span><span class="lang-en">Reads your lab PDF</span></li>
+              <li><span class="lang-es">Hábitos sobre la curva</span><span class="lang-en">Habits on the curve</span></li>
+              <li><span class="lang-es">Tú revisas cada valor</span><span class="lang-en">You review every value</span></li>
+              <li><span class="lang-es">Datos de salud protegidos</span><span class="lang-en">Protected health data</span></li>
+            </ul>
+            <div class="app-cta">
+              <a class="btn btn-app" href="/hemotrack/"><span class="lang-es">Ver Hemotrack</span><span class="lang-en">See Hemotrack</span> →</a>
+            </div>
             <div class="app-wip"><span class="lang-es">// próximamente · beta privada</span><span class="lang-en">// coming soon · private beta</span></div>
           </div>
         </div>
