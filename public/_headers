@@ -5,3 +5,12 @@
   Permissions-Policy: geolocation=(), microphone=(), camera=()
   Strict-Transport-Security: max-age=31536000
   Content-Security-Policy: default-src 'self'; base-uri 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; form-action 'self'; frame-ancestors 'self'
+
+# Update feeds read by the installed apps (old URL, kept until Oct 2027).
+# CORS *: the Android WebView (origin https://localhost) must be allowed to
+# read it — without this, installed Fastrack builds never see a new version.
+# no-cache: a stale copy at the edge would hide a new release.
+/:app/latest.json
+  Cache-Control: no-cache
+  Access-Control-Allow-Origin: *
+  Content-Type: application/json; charset=utf-8
